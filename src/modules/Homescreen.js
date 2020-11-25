@@ -1,18 +1,23 @@
 import styled from "styled-components/macro";
 import GlobalStyle, { createGlobalStyle } from "../components/GlobalStyle";
-import image1 from "../img/bg.png";
+import image1 from "../img/bg01.png";
 
-export default function Homescreen() {
-  function Buttondown() {
-    console.log("Button Clicked");
-  }
+export default function Homescreen({ citySelection }) {
   return (
     <Contentbox>
       <Citiesmenu>
-        <ButtonStyled onClick={Buttondown}>Berlin</ButtonStyled>
-        <ButtonStyled onClick={Buttondown}>Hamburg</ButtonStyled>
-        <ButtonStyled onClick={Buttondown}>München</ButtonStyled>
-        <ButtonStyled onClick={Buttondown}>Köln</ButtonStyled>
+        <ButtonStyled onClick={(event) => citySelection("Berlin")}>
+          Berlin
+        </ButtonStyled>
+        <ButtonStyled onClick={(event) => citySelection("Hamburg")}>
+          Hamburg
+        </ButtonStyled>
+        <ButtonStyled onClick={(event) => citySelection("Muenchen")}>
+          München
+        </ButtonStyled>
+        <ButtonStyled onClick={(event) => citySelection("Koeln")}>
+          Köln
+        </ButtonStyled>
       </Citiesmenu>
     </Contentbox>
   );

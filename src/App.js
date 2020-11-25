@@ -1,51 +1,61 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components/macro";
 import GlobalStyle, { createGlobalStyle } from "./components/GlobalStyle";
-import image1 from "./img/bg.png";
+import image1 from "./img/bg01.png";
 import Header from "./components/Header";
 import Navigation from "./components/Menu";
 import Homescreen from "./modules/Homescreen";
-import getConditions from "./components/Getcontitions";
+import Dresses from "./modules/Dresses";
+import About from "./modules/About";
+import getConditions from "./components/Getconditions";
+import getDresses from "./components/Getdresses";
 
 function App() {
-  const [condition, setCondition] = useState({});
-  //update State initial
+  //navigationState
+  const [currentpage, setCurrentPage] = useState("home");
+  //conditionState
+  const [condition, setCondition] = useState([]);
+  //dressState
+  const [dresses, setDresses] = useState([]);
+  //cityState
+  const [city, setCity] = useState("");
+
+  //update dressState initial
   useEffect(() => {
-    getConditions()
+    getDresses()
       //set the keys text and date in the Object of the state
-      .then((data) =>
-        setCondition({
-          condition: data[0].condition,
-          temp: data[0].temp,
-          dresscode: data[0].dresscode,
-          location: data[0].city,
-        })
-      )
+      .then((data) => setDresses([...data]))
       .catch((error) => console.log(error));
   }, []);
 
-  //update State on Click
-  function updateCondition() {
+  //update conditionState initial
+  useEffect(() => {
     getConditions()
-      .then((data) =>
-        setCondition({
-          condition: data[1].condition,
-          temp: data[1].temp,
-          dresscode: data[1].dresscode,
-          location: data[1].city,
-        })
-      )
+      //set the keys text and date in the Object of the state
+      .then((data) => setCondition([...data]))
       .catch((error) => console.log(error));
-  }
+  }, []);
 
-  console.table(condition);
+  //console.table(condition);
+  //console.table(dresses);
+  console.log(city);
+
+  function Contentswitch(currentpage) {
+    if (currentpage == "home") {
+      return <Homescreen citySelection={setCity} />;
+    } else if (currentpage == "dress") {
+      return <Dresses />;
+    } else {
+      return <About />;
+    }
+  }
 
   return (
     <Contentbody>
       <GlobalStyle />
       <Header />
-      <Homescreen />
-      <Navigation />
+      {Contentswitch(currentpage)}
+      <Navigation onNavigate={setCurrentPage} />
     </Contentbody>
   );
 }

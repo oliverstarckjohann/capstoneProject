@@ -1,11 +1,14 @@
 import styled from "styled-components/macro";
 
-export default function Navigation() {
+export default function Navigation({ onNavigate }) {
   return (
     <NavigationContainer>
-      <Navigationitem>Home</Navigationitem>
-      <Navigationitem>Of</Navigationitem>
-      <Navigationitem>Style</Navigationitem>
+      <Navigationitem onClick={(event) => onNavigate("home")}>
+        Home
+      </Navigationitem>
+      <Navigationitem onClick={(event) => onNavigate("dress")}>
+        About
+      </Navigationitem>
     </NavigationContainer>
   );
 }
