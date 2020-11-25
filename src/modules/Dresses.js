@@ -15,7 +15,7 @@ export default function Dresses() {
 const Contentbox = styled.div`
   margin-top: 0px;
   width: 100%;
-  height: 650px;
+  height: 100vh;
   display: block;
   position: relative;
   margin: 0 auto;

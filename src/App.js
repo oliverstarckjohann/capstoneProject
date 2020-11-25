@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components/macro";
-import GlobalStyle, { createGlobalStyle } from "./components/GlobalStyle";
-import image1 from "./img/bg01.png";
+import GlobalStyle from "./components/GlobalStyle";
 import Header from "./components/Header";
 import Navigation from "./components/Menu";
 import Homescreen from "./modules/Homescreen";
@@ -69,8 +68,6 @@ const Contentbody = styled.div`
   margin: 0 auto;
   padding: 0px;
   text-align: center;
-  background-image: url(${image1});
-  background-size: cover;
 `;
 
 const Title = styled.h1`

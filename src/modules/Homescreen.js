@@ -26,7 +26,7 @@ export default function Homescreen({ citySelection }) {
 const Contentbox = styled.div`
   margin-top: 0px;
   width: 100%;
-  height: 650px;
+  height: 100vh;
   display: block;
   position: relative;
   margin: 0 auto;
@@ -55,4 +55,5 @@ const ButtonStyled = styled.button`
   border: none;
   border-radius: 10px;
   margin-bottom: 20px;
+  box-shadow: 10px 10px 5px grey;
 `;
