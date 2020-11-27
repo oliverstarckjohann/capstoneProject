@@ -1,5 +1,4 @@
 import styled from "styled-components/macro";
-import GlobalStyle, { createGlobalStyle } from "../components/GlobalStyle";
 import backgroundimage from "../img/lookbook.jpg";
 
 export default function About() {
@@ -41,7 +40,7 @@ const Contentbox = styled.div`
 `;
 
 const AboutContent = styled.section`
-  height: 49%;
+  height: 52%;
   width: 90%;
   display: block;
   position: relative;

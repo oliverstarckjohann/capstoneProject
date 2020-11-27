@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import getConditions from "./components/Getconditions";
+import getDresses from "./components/Getdresses";
 import styled from "styled-components/macro";
 import GlobalStyle from "./components/GlobalStyle";
 import Header from "./components/Header";
@@ -6,26 +8,23 @@ import Navigation from "./components/Menu";
 import Homescreen from "./modules/Homescreen";
 import Dresses from "./modules/Dresses";
 import About from "./modules/About";
-import getConditions from "./components/Getconditions";
-import getDresses from "./components/Getdresses";
 
 function App() {
   //navigationState
   const [currentpage, setCurrentPage] = useState("home");
   //conditionState
-  const [condition, setCondition] = useState([]);
-  //dressState
-  const [dresses, setDresses] = useState([]);
+  const [conditions, setCondition] = useState([
+    {
+      city: "Hamburg",
+      description: "Waiting for data...",
+      temp: "42",
+      dresscode: "42",
+    },
+  ]);
+  //AllDressesState
+  const [alldresses, setAllDresses] = useState([]);
   //cityState
-  const [city, setCity] = useState("");
-
-  //update dressState initial
-  useEffect(() => {
-    getDresses()
-      //set the keys text and date in the Object of the state
-      .then((data) => setDresses([...data]))
-      .catch((error) => console.log(error));
-  }, []);
+  const [selectedcity, setselectedCity] = useState("Hamburg");
 
   //update conditionState initial
   useEffect(() => {
@@ -35,15 +34,32 @@ function App() {
       .catch((error) => console.log(error));
   }, []);
 
-  //console.table(condition);
-  //console.table(dresses);
-  console.log(city);
+  //update dressState initial
+  useEffect(() => {
+    getDresses()
+      //set the Dresses and Dresscodes to the state
+      .then((data) => setAllDresses([...data]))
+      .catch((error) => console.log(error));
+  }, []);
+
+  let GetDataForMyCity = conditions.find((condition) => {
+    return condition.city === selectedcity;
+  });
+
+  let ConditionsInCity = GetDataForMyCity.description;
+  let TemperatureInCity = GetDataForMyCity.temp;
 
   function Contentswitch(currentpage) {
-    if (currentpage == "home") {
-      return <Homescreen citySelection={setCity} />;
-    } else if (currentpage == "dress") {
-      return <Dresses />;
+    if (currentpage === "home") {
+      return <Homescreen citySelection={setselectedCity} />;
+    } else if (currentpage === "dress") {
+      return (
+        <Dresses
+          city={selectedcity}
+          temp={TemperatureInCity}
+          conditions={ConditionsInCity}
+        />
+      );
     } else {
       return <About />;
     }
