@@ -1,24 +1,89 @@
-import styled from "styled-components";
-import image1 from "./img/bg.png";
+import { useEffect, useState } from "react";
+import getConditions from "./components/Getconditions";
+import getDresses from "./components/Getdresses";
+import styled from "styled-components/macro";
+import GlobalStyle from "./components/GlobalStyle";
+import Header from "./components/Header";
+import Navigation from "./components/Menu";
+import Homescreen from "./modules/Homescreen";
+import Dresses from "./modules/Dresses";
+import About from "./modules/About";
 
 function App() {
+  //navigationState
+  const [currentpage, setCurrentPage] = useState("home");
+  //conditionState
+  const [conditions, setCondition] = useState([
+    {
+      city: "Hamburg",
+      description: "Waiting for data...",
+      temp: "42",
+      dresscode: "42",
+    },
+  ]);
+  //AllDressesState
+  const [alldresses, setAllDresses] = useState([]);
+  //cityState
+  const [selectedcity, setselectedCity] = useState("Hamburg");
+
+  //update conditionState initial
+  useEffect(() => {
+    getConditions()
+      //set the keys text and date in the Object of the state
+      .then((data) => setCondition([...data]))
+      .catch((error) => console.log(error));
+  }, []);
+
+  //update dressState initial
+  useEffect(() => {
+    getDresses()
+      //set the Dresses and Dresscodes to the state
+      .then((data) => setAllDresses([...data]))
+      .catch((error) => console.log(error));
+  }, []);
+
+  let GetDataForMyCity = conditions.find((condition) => {
+    return condition.city === selectedcity;
+  });
+
+  let ConditionsInCity = GetDataForMyCity.description;
+  let TemperatureInCity = GetDataForMyCity.temp;
+
+  function Contentswitch(currentpage) {
+    if (currentpage === "home") {
+      return <Homescreen citySelection={setselectedCity} />;
+    } else if (currentpage === "dress") {
+      return (
+        <Dresses
+          city={selectedcity}
+          temp={TemperatureInCity}
+          conditions={ConditionsInCity}
+        />
+      );
+    } else {
+      return <About />;
+    }
+  }
+
   return (
-    <Contentbox>
-      <Title>Hello Fashionists!</Title>
-      <img src={image1} width="360px" alt="" />
-    </Contentbox>
+    <Contentbody>
+      <GlobalStyle />
+      <Header />
+      {Contentswitch(currentpage)}
+      <Navigation onNavigate={setCurrentPage} />
+    </Contentbody>
   );
 }
 
 export default App;
 
-const Contentbox = styled.div`
-  width: 360px;
+const Contentbody = styled.div`
+  width: 340px;
   display: block;
   position: relative;
   margin: 0 auto;
-  background-color: #9e9d9d;
-  padding: 10px;
+  padding: 0px;
+  text-align: center;
 `;
 
 const Title = styled.h1`
