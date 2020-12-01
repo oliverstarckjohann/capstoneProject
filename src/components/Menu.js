@@ -8,7 +8,7 @@ export default function Navigation({ onNavigate }) {
       <Navigationitem onClick={(event) => onNavigate("home")}>
         <img src={homeicon} alt="home" />
       </Navigationitem>
-      <Navigationitem onClick={(event) => onNavigate("dress")}>
+      <Navigationitem onClick={(event) => onNavigate("about")}>
         <img src={abouticon} alt="about" />
       </Navigationitem>
     </NavigationContainer>

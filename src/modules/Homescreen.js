@@ -1,20 +1,25 @@
 import styled from "styled-components/macro";
 import image1 from "../img/bg01.png";
 
-export default function Homescreen({ citySelection }) {
+export default function Homescreen({ citySelection, pageNavigation }) {
+  function selectandNavigate(city) {
+    citySelection(city);
+    pageNavigation("dress");
+  }
+
   return (
     <Contentbox>
       <Citiesmenu>
-        <ButtonStyled onClick={(event) => citySelection("Berlin")}>
+        <ButtonStyled onClick={(event) => selectandNavigate("Berlin")}>
           Berlin
         </ButtonStyled>
-        <ButtonStyled onClick={(event) => citySelection("Hamburg")}>
+        <ButtonStyled onClick={(event) => selectandNavigate("Hamburg")}>
           Hamburg
         </ButtonStyled>
-        <ButtonStyled onClick={(event) => citySelection("Muenchen")}>
+        <ButtonStyled onClick={(event) => selectandNavigate("Muenchen")}>
           München
         </ButtonStyled>
-        <ButtonStyled onClick={(event) => citySelection("Koeln")}>
+        <ButtonStyled onClick={(event) => selectandNavigate("Koeln")}>
           Köln
         </ButtonStyled>
       </Citiesmenu>

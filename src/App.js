@@ -11,7 +11,7 @@ import About from "./modules/About";
 
 function App() {
   //ConditionState
-  const [conditions, setCondition] = useState([
+  const [conditions, setConditions] = useState([
     {
       city: "Hamburg",
       description: "Waiting for data...",
@@ -20,7 +20,7 @@ function App() {
     },
   ]);
   //DressesState
-  const [alldresses, setAllDresses] = useState([]);
+  const [dresses, setAllDresses] = useState([]);
   //cityState
   const [selectedcity, setselectedCity] = useState("Hamburg");
   //NavigationState
@@ -29,15 +29,13 @@ function App() {
   //update conditionState initial
   useEffect(() => {
     getConditions()
-      //set the keys text and date in the Object of the state
-      .then((data) => setCondition([...data]))
+      .then((data) => setConditions([...data]))
       .catch((error) => console.log(error));
   }, []);
 
   //update dressState initial
   useEffect(() => {
     getDresses()
-      //set the Dresses and Dresscodes to the state
       .then((data) => setAllDresses([...data]))
       .catch((error) => console.log(error));
   }, []);
@@ -46,18 +44,20 @@ function App() {
     return condition.city === selectedcity;
   });
 
-  let ConditionsInCity = GetDataForMyCity.description;
-  let TemperatureInCity = GetDataForMyCity.temp;
-
   function Contentswitch(currentpage) {
     if (currentpage === "home") {
-      return <Homescreen citySelection={setselectedCity} />;
+      return (
+        <Homescreen
+          citySelection={setselectedCity}
+          pageNavigation={setCurrentPage}
+        />
+      );
     } else if (currentpage === "dress") {
       return (
         <Dresses
           city={selectedcity}
-          temp={TemperatureInCity}
-          conditions={ConditionsInCity}
+          temp={GetDataForMyCity?.temp}
+          conditions={GetDataForMyCity?.description}
         />
       );
     } else {
@@ -84,11 +84,4 @@ const Contentbody = styled.div`
   margin: 0 auto;
   padding: 0px;
   text-align: center;
-`;
-
-const Title = styled.h1`
-  font-size: 1.2em;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  color: palevioletred;
 `;
