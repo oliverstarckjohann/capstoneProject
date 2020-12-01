@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import GlobalStyle from "../components/GlobalStyle";
+import GlobalStyle from "./GlobalStyle";
 
 export default function Dresses(props) {
   return (

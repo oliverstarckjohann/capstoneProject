@@ -6,13 +6,11 @@ import GlobalStyle from "./components/GlobalStyle";
 import Header from "./components/Header";
 import Navigation from "./components/Menu";
 import Homescreen from "./modules/Homescreen";
-import Dresses from "./modules/Dresses";
+import Dresses from "./components/Dresses";
 import About from "./modules/About";
 
 function App() {
-  //navigationState
-  const [currentpage, setCurrentPage] = useState("home");
-  //conditionState
+  //ConditionState
   const [conditions, setCondition] = useState([
     {
       city: "Hamburg",
@@ -21,10 +19,12 @@ function App() {
       dresscode: "42",
     },
   ]);
-  //AllDressesState
+  //DressesState
   const [alldresses, setAllDresses] = useState([]);
   //cityState
   const [selectedcity, setselectedCity] = useState("Hamburg");
+  //NavigationState
+  const [currentpage, setCurrentPage] = useState("home");
 
   //update conditionState initial
   useEffect(() => {
