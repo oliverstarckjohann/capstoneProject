@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import getConditions from "./components/Getconditions";
-import getDresses from "./components/Getdresses";
+import getConditions from "./services/Getconditions";
+import getDresses from "./services/Getdresses";
 import styled from "styled-components/macro";
 import GlobalStyle from "./components/GlobalStyle";
 import Header from "./components/Header";

@@ -1,5 +1,4 @@
 import styled from "styled-components/macro";
-import GlobalStyle, { createGlobalStyle } from "../components/GlobalStyle";
 import image1 from "../img/bg01.png";
 
 export default function Homescreen({ citySelection }) {
