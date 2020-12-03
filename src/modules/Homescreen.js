@@ -9,7 +9,8 @@ export default function Homescreen({ citySelection, pageNavigation }) {
 
   return (
     <Contentbox>
-      <Citiesmenu>
+      <Citiesmenu data-testid="homescreen">
+        >
         <ButtonStyled onClick={(event) => selectandNavigate("Berlin")}>
           Berlin
         </ButtonStyled>

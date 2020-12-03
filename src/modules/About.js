@@ -3,7 +3,7 @@ import backgroundimage from "../img/lookbook.jpg";
 
 export default function About() {
   return (
-    <Contentbox>
+    <Contentbox data-testid="aboutscreen">
       <AboutContent>
         <h2>What ?</h2>
         <TextBlock>

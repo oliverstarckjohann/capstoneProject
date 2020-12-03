@@ -45,23 +45,31 @@ function App() {
   });
 
   function Contentswitch(currentpage) {
-    if (currentpage === "home") {
-      return (
-        <Homescreen
-          citySelection={setselectedCity}
-          pageNavigation={setCurrentPage}
-        />
-      );
-    } else if (currentpage === "dress") {
-      return (
-        <Dresses
-          city={selectedcity}
-          temp={GetDataForMyCity?.temp}
-          conditions={GetDataForMyCity?.description}
-        />
-      );
-    } else {
-      return <About />;
+    switch (currentpage) {
+      case "home":
+        return (
+          <Homescreen
+            citySelection={setselectedCity}
+            pageNavigation={setCurrentPage}
+          />
+        );
+      case "dress":
+        return (
+          <Dresses
+            city={selectedcity}
+            temp={GetDataForMyCity?.temp}
+            conditions={GetDataForMyCity?.description}
+          />
+        );
+      case "about":
+        return <About />;
+      default:
+        return (
+          <Homescreen
+            citySelection={setselectedCity}
+            pageNavigation={setCurrentPage}
+          />
+        );
     }
   }
 

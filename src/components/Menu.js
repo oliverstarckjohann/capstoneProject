@@ -5,10 +5,16 @@ import abouticon from "../img/about_w.png";
 export default function Navigation({ onNavigate }) {
   return (
     <NavigationContainer>
-      <Navigationitem onClick={(event) => onNavigate("home")}>
+      <Navigationitem
+        data-testid="homebutton"
+        onClick={(event) => onNavigate("home")}
+      >
         <img src={homeicon} alt="home" />
       </Navigationitem>
-      <Navigationitem onClick={(event) => onNavigate("about")}>
+      <Navigationitem
+        data-testid="aboutbutton"
+        onClick={(event) => onNavigate("about")}
+      >
         <img src={abouticon} alt="about" />
       </Navigationitem>
     </NavigationContainer>
