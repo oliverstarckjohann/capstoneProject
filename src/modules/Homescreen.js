@@ -1,5 +1,4 @@
 import styled from "styled-components/macro";
-import image1 from "../img/bg01.png";
 
 export default function Homescreen({ citySelection, pageNavigation }) {
   function selectandNavigate(city) {
@@ -36,8 +35,7 @@ const Contentbox = styled.div`
   margin: 0 auto;
   padding: 0px;
   text-align: center;
-  background-image: url(${image1});
-  background-size: cover;
+  top: 60px;
 `;
 
 const Citiesmenu = styled.section`
@@ -51,13 +49,16 @@ const Citiesmenu = styled.section`
 `;
 
 const ButtonStyled = styled.button`
-  font-size: 1.5em;
+  font-size: 1.2rem;
   text-align: center;
-  padding: 0.6em;
-  background-color: #636566;
-  color: #24cac0;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  padding: 0.8em 1.75rem;
+  background: white;
+  border: 1px solid black;
+  color: black;
   border: none;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  box-shadow: 10px 10px 5px grey;
+  border-radius: 4px;
+  margin-bottom: 1.75rem;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.4);
 `;

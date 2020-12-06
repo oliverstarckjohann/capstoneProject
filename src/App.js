@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import getConditions from "./services/Getconditions";
-import getDresses from "./services/Getdresses";
+import fetchData from "./services/fetchData";
 import styled from "styled-components/macro";
 import GlobalStyle from "./components/GlobalStyle";
 import Header from "./components/Header";
 import Navigation from "./components/Menu";
 import Homescreen from "./modules/Homescreen";
-import Dresses from "./components/Dresses";
+import Dresses from "./modules/Dresses";
 import About from "./modules/About";
 
 function App() {
@@ -28,14 +27,14 @@ function App() {
 
   //update conditionState initial
   useEffect(() => {
-    getConditions()
+    fetchData("json_request_conditions.php")
       .then((data) => setConditions([...data]))
       .catch((error) => console.log(error));
   }, []);
 
   //update dressState initial
   useEffect(() => {
-    getDresses()
+    fetchData("json_request_dress.php")
       .then((data) => setAllDresses([...data]))
       .catch((error) => console.log(error));
   }, []);
@@ -86,10 +85,8 @@ function App() {
 export default App;
 
 const Contentbody = styled.div`
-  width: 340px;
+  width: 100%;
   display: block;
-  position: relative;
-  margin: 0 auto;
   padding: 0px;
   text-align: center;
 `;

@@ -1,5 +1,4 @@
 import styled from "styled-components/macro";
-import image1 from "../img/bg01.png";
 
 export default function Dresses(props) {
   return (
@@ -20,8 +19,6 @@ const Contentbox = styled.div`
   margin: 0 auto;
   padding: 0px;
   text-align: center;
-  background-image: url(${image1});
-  background-size: cover;
 `;
 
 const Conditions = styled.section`

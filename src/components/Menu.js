@@ -5,43 +5,49 @@ import abouticon from "../img/about_w.png";
 export default function Navigation({ onNavigate }) {
   return (
     <NavigationContainer>
-      <Navigationitem
-        data-testid="homebutton"
-        onClick={(event) => onNavigate("home")}
-      >
-        <img src={homeicon} alt="home" />
-      </Navigationitem>
-      <Navigationitem
-        data-testid="aboutbutton"
-        onClick={(event) => onNavigate("about")}
-      >
-        <img src={abouticon} alt="about" />
-      </Navigationitem>
+      <Navigationlist>
+        <NavigationItem
+          data-testid="homebutton"
+          onClick={(event) => onNavigate("home")}
+        >
+          <img src={homeicon} alt="home" />
+        </NavigationItem>
+        <NavigationItem
+          data-testid="aboutbutton"
+          onClick={(event) => onNavigate("about")}
+        >
+          <img src={abouticon} alt="about" />
+        </NavigationItem>
+      </Navigationlist>
     </NavigationContainer>
   );
 }
 
-const NavigationContainer = styled.div`
+const NavigationContainer = styled.nav`
   position: fixed;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
   height: 60px;
-  width: 340px;
-  bottom: 2px;
-  background-color: #545353;
-  border-radius: 10px;
+  width: 100%;
+  bottom: 0;
+  background-color: rgba(34, 34, 34, 0.96);
   z-index: 10;
   opacity: 90%;
 `;
 
-const Navigationitem = styled.div`
+const Navigationlist = styled.ul`
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+`;
+
+const NavigationItem = styled.li`
   display: block;
   height: 20px;
-  background-color: #545353;
   padding: 2px;
   color: #eeecec;
   border-radius: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
+  list-style: none;
 `;

@@ -1,5 +1,0 @@
-export default function getConditions() {
-  return fetch(
-    "https://oliver-starckjohann.de/panda/json_request_conditions.php"
-  ).then((res) => res.json());
-}

@@ -1,19 +1,21 @@
 import { createGlobalStyle } from "styled-components";
-import image1 from "../img/bg01.png";
 
 const GlobalStyle = createGlobalStyle`
 
 * {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
     
 }
+
 body {
     margin: 0;
-    background-color: #e9e7e7;
-    background-image: url(${image1});
-    background-size: cover;
+    background: white;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
 `;
 
