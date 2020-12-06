@@ -40,7 +40,6 @@ const Contentbox = styled.div`
 `;
 
 const AboutContent = styled.section`
-  height: 52%;
   width: calc(100% - 4rem);
   display: block;
   position: relative;
@@ -53,7 +52,6 @@ const AboutContent = styled.section`
   border-radius: 10px;
   border: 6px solid #ffffff;
   box-shadow: 0 5px 10px rgba(0,0,0,0.75);
-  height: 52%;
 }
 `;
 

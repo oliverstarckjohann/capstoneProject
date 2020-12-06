@@ -39,7 +39,7 @@ const Contentbox = styled.div`
 `;
 
 const Citiesmenu = styled.section`
-  height: 600px;
+  height: 80%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
