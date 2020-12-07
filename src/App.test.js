@@ -42,11 +42,18 @@ test("AboutButton Image in Footer Component", () => {
   expect(image2).toBeInTheDocument();
 });
 
-test("Test Function of Hamburg Button", () => {
+test("Test Conditions Rendering for Hamburg Button", () => {
   const { getByText, getByTestId } = render(<App />);
   fireEvent.click(getByText("Hamburg"));
-  const onTargetPage = getByTestId("dressconditions");
-  expect(onTargetPage).toBeInTheDocument();
+  const onTargetConditions = getByTestId("dressconditions");
+  expect(onTargetConditions).toBeInTheDocument();
+});
+
+test("Test DressesList Rendering for Hamburg Button", () => {
+  const { getByText, getByTestId } = render(<App />);
+  fireEvent.click(getByText("Hamburg"));
+  const onTargetDress = getByTestId("dresslist");
+  expect(onTargetDress).toBeInTheDocument();
 });
 
 test("Test Function of Home Button in Menu", () => {

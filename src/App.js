@@ -39,10 +39,17 @@ function App() {
       .catch((error) => console.log(error));
   }, []);
 
+  //User-Selected City from Homescreen
   let GetDataForMyCity = conditions.find((condition) => {
     return condition.city === selectedcity;
   });
 
+  //Selected Dresses for the Conditions in the location (dresscode)
+  const filteredDresses = dresses.filter(
+    (dresses) => dresses.dresscode === GetDataForMyCity?.dresscode
+  );
+
+  //Render the page-Content, selected in the Navigation
   function Contentswitch(currentpage) {
     switch (currentpage) {
       case "home":
@@ -58,6 +65,8 @@ function App() {
             city={selectedcity}
             temp={GetDataForMyCity?.temp}
             conditions={GetDataForMyCity?.description}
+            dresscode={GetDataForMyCity?.dresscode}
+            dresses={filteredDresses}
           />
         );
       case "about":
@@ -72,6 +81,7 @@ function App() {
     }
   }
 
+  //The return value of the app => rendering content
   return (
     <Contentbody>
       <GlobalStyle />
