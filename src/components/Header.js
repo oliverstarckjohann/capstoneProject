@@ -8,21 +8,22 @@ export default function Header() {
   );
 }
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.header`
   position: fixed;
   height: 60px;
-  width: 340px;
-  top: 2px;
-  background-color: #545353;
-  border-radius: 10px;
+  width: 100%;
+  top: 0;
+  background-color: rgba(34, 34, 34, 0.96);
   z-index: 10;
   opacity: 90%;
 `;
 
 const Headertitle = styled.h1`
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.4em;
-  color: #eeecec;
+  font-size: 1rem;
+  font-weight: 900;
+  color: white;
+  letter-spacing: 2px;
   border-radius: 10px;
-  margin-top: 20px;
+  text-transform: uppercase;
+  line-height: 60px;
 `;

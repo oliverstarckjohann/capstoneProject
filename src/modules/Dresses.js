@@ -1,13 +1,21 @@
 import styled from "styled-components/macro";
-import GlobalStyle from "./GlobalStyle";
+import DressListItem from "../components/DressListItem";
+import uuid from "react-uuid";
 
 export default function Dresses(props) {
   return (
     <Contentbox>
-      <GlobalStyle />
-      <Conditions>
+      <Conditions data-testid="dressconditions" key={uuid()}>
         {props.city}, {props.temp} Grad, {props.conditions}
+        <br />
+        Das kannst Du heute gut anziehen:
       </Conditions>
+
+      <ul data-testid="dresslist">
+        {props.dresses.map((dress) => (
+          <DressListItem key={uuid()} dress={dress} />
+        ))}
+      </ul>
     </Contentbox>
   );
 }
@@ -24,11 +32,12 @@ const Contentbox = styled.div`
 `;
 
 const Conditions = styled.section`
-  height: 600px;
+  height: 30%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
   align-items: center;
+  padding: 0.6em;
 `;

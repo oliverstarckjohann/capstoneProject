@@ -3,7 +3,7 @@ import backgroundimage from "../img/lookbook.jpg";
 
 export default function About() {
   return (
-    <Contentbox>
+    <Contentbox data-testid="aboutscreen">
       <AboutContent>
         <h2>What ?</h2>
         <TextBlock>
@@ -40,20 +40,19 @@ const Contentbox = styled.div`
 `;
 
 const AboutContent = styled.section`
-  height: 52%;
-  width: 90%;
+  width: calc(100% - 4rem);
   display: block;
   position: relative;
   top: 80px;
   margin: 0 auto;
   padding: 10px;
   text-align: left;
-  background-color: #e9e7e7;
-  color: #000000;
+  background-color: rgba(192,192,192,0.90);
+  color: rgba(0,0,0,1);
   border-radius: 10px;
   border: 6px solid #ffffff;
-  box-shadow: 10px 10px 5px gray;
-  opacity: 89%;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.75);
+}
 `;
 
 const TextBlock = styled.p`
