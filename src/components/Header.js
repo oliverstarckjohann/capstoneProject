@@ -16,6 +16,7 @@ const HeaderContainer = styled.header`
   background-color: rgba(34, 34, 34, 0.96);
   z-index: 10;
   opacity: 90%;
+  text-align: center;
 `;
 
 const Headertitle = styled.h1`
