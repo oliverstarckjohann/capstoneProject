@@ -7,8 +7,8 @@ export default function Homescreen({ citySelection, pageNavigation }) {
   }
 
   return (
-    <Contentbox>
-      <Citiesmenu data-testid="homescreen">
+    <ContentBox>
+      <CitiesMenu data-testid="homescreen">
         <ButtonStyled onClick={(event) => selectandNavigate("Berlin")}>
           Berlin
         </ButtonStyled>
@@ -21,12 +21,12 @@ export default function Homescreen({ citySelection, pageNavigation }) {
         <ButtonStyled onClick={(event) => selectandNavigate("Koeln")}>
           Köln
         </ButtonStyled>
-      </Citiesmenu>
-    </Contentbox>
+      </CitiesMenu>
+    </ContentBox>
   );
 }
 
-const Contentbox = styled.div`
+const ContentBox = styled.div`
   margin-top: 0px;
   width: 100%;
   height: 100vh;
@@ -38,7 +38,7 @@ const Contentbox = styled.div`
   top: 60px;
 `;
 
-const Citiesmenu = styled.section`
+const CitiesMenu = styled.section`
   height: 80%;
   display: flex;
   flex-direction: column;

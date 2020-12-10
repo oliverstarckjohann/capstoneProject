@@ -5,7 +5,7 @@ import abouticon from "../img/about_w.png";
 export default function Navigation({ onNavigate }) {
   return (
     <NavigationContainer>
-      <Navigationlist>
+      <NavigationList>
         <NavigationItem
           data-testid="homebutton"
           onClick={(event) => onNavigate("home")}
@@ -18,7 +18,7 @@ export default function Navigation({ onNavigate }) {
         >
           <img src={abouticon} alt="about" />
         </NavigationItem>
-      </Navigationlist>
+      </NavigationList>
     </NavigationContainer>
   );
 }
@@ -33,7 +33,7 @@ const NavigationContainer = styled.nav`
   opacity: 90%;
 `;
 
-const Navigationlist = styled.ul`
+const NavigationList = styled.ul`
   list-style: none;
   padding: 0;
   display: flex;

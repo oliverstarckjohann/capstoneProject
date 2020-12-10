@@ -56,14 +56,14 @@ test("Test DressesList Rendering for Hamburg Button", () => {
   expect(onTargetDress).toBeInTheDocument();
 });
 
-test("Test Function of Home Button in Menu", () => {
+test("Test Function of Home Button in Navigation", () => {
   const { getByTestId } = render(<App />);
   fireEvent.click(getByTestId("homebutton"));
   const onTargetPage = getByTestId("homescreen");
   expect(onTargetPage).toBeInTheDocument();
 });
 
-test("Test Function of About Button in Menu", () => {
+test("Test Function of About Button in Navigation", () => {
   const { getByTestId } = render(<App />);
   fireEvent.click(getByTestId("aboutbutton"));
   const onTargetPage = getByTestId("aboutscreen");

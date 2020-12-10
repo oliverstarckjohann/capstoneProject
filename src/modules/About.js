@@ -3,7 +3,7 @@ import backgroundimage from "../img/lookbook.jpg";
 
 export default function About() {
   return (
-    <Contentbox data-testid="aboutscreen">
+    <ContentBox data-testid="aboutscreen">
       <AboutContent>
         <h2>What ?</h2>
         <TextBlock>
@@ -22,11 +22,11 @@ export default function About() {
         </TextBlock>
         <TextBlock>Oliver Starckjohann</TextBlock>
       </AboutContent>
-    </Contentbox>
+    </ContentBox>
   );
 }
 
-const Contentbox = styled.div`
+const ContentBox = styled.div`
   margin: 0;
   padding: 0;
   width: 100%;

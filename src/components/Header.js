@@ -3,7 +3,7 @@ import styled from "styled-components/macro";
 export default function Header() {
   return (
     <HeaderContainer>
-      <Headertitle>What to dress today?</Headertitle>
+      <HeaderTitle>What to dress today?</HeaderTitle>
     </HeaderContainer>
   );
 }
@@ -19,7 +19,7 @@ const HeaderContainer = styled.header`
   text-align: center;
 `;
 
-const Headertitle = styled.h1`
+const HeaderTitle = styled.h1`
   font-size: 1rem;
   font-weight: 900;
   color: white;

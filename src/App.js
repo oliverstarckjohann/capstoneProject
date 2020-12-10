@@ -3,7 +3,7 @@ import fetchData from "./services/fetchData";
 import styled from "styled-components/macro";
 import GlobalStyle from "./components/GlobalStyle";
 import Header from "./components/Header";
-import Navigation from "./components/Menu";
+import Navigation from "./components/Navigation";
 import Homescreen from "./modules/Homescreen";
 import Dresses from "./modules/Dresses";
 import About from "./modules/About";
