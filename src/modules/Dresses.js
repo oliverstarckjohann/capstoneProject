@@ -4,23 +4,23 @@ import uuid from "react-uuid";
 
 export default function Dresses(props) {
   return (
-    <Contentbox>
-      <Conditions data-testid="dressconditions" key={uuid()}>
+    <ContentBox>
+      <DressConditions data-testid="dressconditions" key={uuid()}>
         {props.city}, {props.temp} Grad, {props.conditions}
         <br />
         Das kannst Du heute gut anziehen:
-      </Conditions>
+      </DressConditions>
 
       <ul data-testid="dresslist">
         {props.dresses.map((dress) => (
           <DressListItem key={uuid()} dress={dress} />
         ))}
       </ul>
-    </Contentbox>
+    </ContentBox>
   );
 }
 
-const Contentbox = styled.div`
+const ContentBox = styled.div`
   margin-top: 0px;
   width: 100%;
   height: 100vh;
@@ -31,7 +31,7 @@ const Contentbox = styled.div`
   text-align: center;
 `;
 
-const Conditions = styled.section`
+const DressConditions = styled.section`
   height: 30%;
   display: flex;
   flex-direction: column;

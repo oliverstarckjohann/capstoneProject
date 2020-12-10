@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { getByTestId, render } from "@testing-library/react";
-import Navigation from "./Menu";
+import Navigation from "./Navigation";
 
 test("Navigation homebutton renders without errors", () => {
   const { getByTestId } = render(<Navigation />);

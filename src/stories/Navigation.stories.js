@@ -1,5 +1,5 @@
 import React from "react";
-import Navigation from "../components/Menu";
+import Navigation from "../components/Navigation";
 
 export default {
   title: "components/Navigation",
