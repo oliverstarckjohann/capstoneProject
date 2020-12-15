@@ -1,6 +1,7 @@
 import styled from "styled-components/macro";
 import homeicon from "../img/home_w.png";
 import abouticon from "../img/about_w.png";
+import settingsicon from "../img/settings_w.png";
 
 export default function Navigation({ onNavigate }) {
   return (
@@ -11,6 +12,12 @@ export default function Navigation({ onNavigate }) {
           onClick={(event) => onNavigate("home")}
         >
           <img src={homeicon} alt="home" />
+        </NavigationItem>
+        <NavigationItem
+          data-testid="settingsbutton"
+          onClick={(event) => onNavigate("settings")}
+        >
+          <img src={settingsicon} alt="settings" />
         </NavigationItem>
         <NavigationItem
           data-testid="aboutbutton"
