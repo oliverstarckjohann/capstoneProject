@@ -6,7 +6,7 @@ export default function DressListItem({ dress }) {
     <ListItem key={uuid()}>
       <img
         alt="mode"
-        src={`https://oliver-starckjohann.de/img/${dress.path}`}
+        src={`https://oliver-starckjohann.de/img_wm/${dress.path}`}
       />
     </ListItem>
   );

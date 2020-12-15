@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation";
 import Homescreen from "./modules/Homescreen";
 import Dresses from "./modules/Dresses";
 import About from "./modules/About";
+import Settings from "./modules/Settings";
 
 function App() {
   //ConditionState
@@ -24,6 +25,10 @@ function App() {
   const [selectedcity, setselectedCity] = useState("Hamburg");
   //NavigationState
   const [currentpage, setCurrentPage] = useState("home");
+  //SettingsState
+  const [gender, setGender] = useState(
+    localStorage.getItem("GenderValue") || "f"
+  );
 
   //update conditionState initial
   useEffect(() => {
@@ -34,7 +39,7 @@ function App() {
 
   //update dressState initial
   useEffect(() => {
-    fetchData("json_request_dress.php")
+    fetchData("json_request_dress_wm.php")
       .then((data) => setAllDresses([...data]))
       .catch((error) => console.log(error));
   }, []);
@@ -46,7 +51,8 @@ function App() {
 
   //Selected Dresses for the Conditions in the location (dresscode)
   const filteredDresses = dresses.filter(
-    (dresses) => dresses.dresscode === GetDataForMyCity?.dresscode
+    (dress) =>
+      dress.dresscode === GetDataForMyCity?.dresscode && dress.gender === gender
   );
 
   //Render the page-Content, selected in the Navigation
@@ -71,6 +77,8 @@ function App() {
         );
       case "about":
         return <About />;
+      case "settings":
+        return <Settings gender={gender} handleChangeGender={setGender} />;
       default:
         return (
           <Homescreen
